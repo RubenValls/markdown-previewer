@@ -1,9 +1,12 @@
 import './App.css'
 import { useState, useEffect } from "react";
 import ReactMarkdown from 'react-markdown'
+import {FiMaximize2, FiMinimize2} from 'react-icons/fi'
 
 function App() {
   const [textareaContent, setTextareaContent] = useState("");
+  const [textareaMaximized, setTextareaMaximized] = useState(false);
+  const [previewerMaximized, setPreviewerMaximized] = useState(false);
 
   useEffect(() => {
     console.log(textareaContent)
@@ -11,6 +14,14 @@ function App() {
 
   const newTextareaContent = (event) => {
     setTextareaContent(event.target.value)
+  }
+
+  const changeTextareaContainer = () => {
+    setTextareaMaximized(!textareaMaximized)
+  }
+
+  const changePreviewerContainer = () => {
+    setPreviewerMaximized(!previewerMaximized)
   }
 
   return (
@@ -21,6 +32,13 @@ function App() {
           <h2>
             Markdown Editor
           </h2>
+          <div className='button-container'>
+            {
+              textareaMaximized 
+                ? <FiMinimize2 className='icon' onClick={() => changeTextareaContainer()}/>
+                : <FiMaximize2 className='icon' onClick={() => changeTextareaContainer()}/>
+            }
+          </div>
         </div>
         <textarea rows={15} onChange={() => newTextareaContent(event)}/>
       </div>
@@ -30,6 +48,13 @@ function App() {
           <h2>
             Previewer
           </h2>
+          <div className='button-container'>
+            {
+              previewerMaximized 
+                ? <FiMinimize2 className='icon' onClick={() => changePreviewerContainer()}/>
+                : <FiMaximize2 className='icon' onClick={() => changePreviewerContainer()}/>
+            }
+          </div>
         </div>
         <div id='textarea-content'>
           <ReactMarkdown>{textareaContent}</ReactMarkdown>

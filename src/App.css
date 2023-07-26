@@ -77,3 +77,20 @@ img{
   max-width: 100%;
 }
 
+.button-container{
+  display: flex;
+  margin-right: 10px;
+  margin-left: auto;
+}
+
+.icon{
+  height: 25px;
+  width: auto;
+  margin: auto;
+}
+
+.icon:hover{
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.5s;
+}
