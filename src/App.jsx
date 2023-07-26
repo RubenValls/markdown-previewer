@@ -1,6 +1,16 @@
 import './App.css'
+import { useState, useEffect } from "react";
 
 function App() {
+  const [textareaContent, setTextareaContent] = useState("");
+
+  useEffect(() => {
+    console.log(textareaContent)
+  }, [textareaContent]);
+
+  const newTextareaContent = (event) => {
+    setTextareaContent(event.target.value)
+  }
 
   return (
     <div id='container'>
@@ -11,7 +21,7 @@ function App() {
             Editor
           </h2>
         </div>
-
+        <textarea rows={15} onChange={() => newTextareaContent(event)}/>
       </div>
       <div id='previewer-container'>
         <div id='previewer-header'> 
@@ -20,6 +30,11 @@ function App() {
             Previewer
           </h2>
         </div>
+        <p id='textarea-content'>
+          {
+            textareaContent
+          }
+        </p>
       </div>
     </div>
   )
