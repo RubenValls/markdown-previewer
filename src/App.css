@@ -1,6 +1,6 @@
 #container{
   background-color: #87B5B5;
-  height: 100vh;
+  height: 100%;
   border: 1px solid #87B5B5;
 }
 
@@ -26,6 +26,7 @@
   width: 40px;
   height: auto;
 }
+
 #textarea-header h2{
   padding-left: 10px;
   margin: 0;
@@ -39,6 +40,7 @@
   border: 3px solid black;
   background-color: #c1dfdf;
   color: black;
+  margin-bottom: 30px;
 }
 
 #previewer-header{
@@ -69,5 +71,9 @@ textarea{
 
 #textarea-content{
   padding: 10px;
+}
+
+img{
+  max-width: 100%;
 }
 

@@ -1,5 +1,6 @@
 import './App.css'
 import { useState, useEffect } from "react";
+import ReactMarkdown from 'react-markdown'
 
 function App() {
   const [textareaContent, setTextareaContent] = useState("");
@@ -18,7 +19,7 @@ function App() {
         <div id='textarea-header'>
           <img src='https://www.svgrepo.com/show/314005/free-code-camp.svg' />
           <h2>
-            Editor
+            Markdown Editor
           </h2>
         </div>
         <textarea rows={15} onChange={() => newTextareaContent(event)}/>
@@ -30,11 +31,9 @@ function App() {
             Previewer
           </h2>
         </div>
-        <p id='textarea-content'>
-          {
-            textareaContent
-          }
-        </p>
+        <div id='textarea-content'>
+          <ReactMarkdown>{textareaContent}</ReactMarkdown>
+        </div>
       </div>
     </div>
   )
