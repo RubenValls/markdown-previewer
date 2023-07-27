@@ -18,10 +18,24 @@ function App() {
 
   const changeTextareaContainer = () => {
     setTextareaMaximized(!textareaMaximized)
+    if(!textareaMaximized){
+      document.querySelector('#previewer-container').setAttribute('hidden', true)
+      document.querySelector('#textarea').setAttribute('rows', 50)
+    }else{
+      document.querySelector('#previewer-container').removeAttribute('hidden')
+      document.querySelector('#textarea').setAttribute('rows', 15)
+    }
   }
 
   const changePreviewerContainer = () => {
     setPreviewerMaximized(!previewerMaximized)
+    if(!previewerMaximized){
+      document.querySelector('#textarea-container').setAttribute('hidden', true)
+      document.querySelector('#previewer-container').style.minHeight = "850px";
+    }else{
+      document.querySelector('#textarea-container').removeAttribute('hidden')
+      document.querySelector('#previewer-container').style.minHeight = "550px";
+    }
   }
 
   return (
@@ -40,7 +54,7 @@ function App() {
             }
           </div>
         </div>
-        <textarea rows={15} onChange={() => newTextareaContent(event)}/>
+        <textarea id='textarea' rows={15} onChange={() => newTextareaContent(event)}/>
       </div>
       <div id='previewer-container'>
         <div id='previewer-header'> 
